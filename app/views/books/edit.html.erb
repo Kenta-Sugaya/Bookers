@@ -1,17 +1,22 @@
-<main>
-<h1>Edit Post</h1>
-<%= form_for(@book) do |b| %>
-  <h4>Title</h4>
-  <%= b.text_field :title, class: "book_title"%>
-  <h4>Body</h4>
-  <%= b.text_area :body, class: "book_body" %>
-  <p><%= b.submit 'Update it'%></p>
-
-  <!-- create edit_link -->
-  <%= link_to "Show", book_path(@book), class: "show_#{@book.id}" %>
-  <!-- create "|" -->
-  |
-  <!-- create index_link -->
-  <%= link_to "Back", books_path, class: "back" %>
+<% if @book.errors.any? %>
+        <ul>
+            <% @book.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
 <% end %>
-</main>
+
+<h1>Editing Book</h1>
+
+<%= form_for(@book) do |f| %>
+
+
+    <%= f.label :title%>
+    <%= f.text_field :title%>
+    <br>
+    <%= f.label :body%>
+    <%= f.text_area :body%>
+    <%= f.submit%>
+<%end%>
+<%= link_to "Back",books_path%>
+<%= link_to "Edit",edit_book_path(@book)%>
