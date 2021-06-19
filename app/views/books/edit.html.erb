@@ -2,6 +2,7 @@
 
 <h1>Editing Book</h1>
 <% if @book.errors.any? %>
+<div>"errors prohibited this book from being saved"</div>
         <ul>
             <% @book.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
