@@ -1,3 +1,6 @@
+
+
+<h1>Editing Book</h1>
 <% if @book.errors.any? %>
         <ul>
             <% @book.errors.full_messages.each do |msg| %>
@@ -5,9 +8,6 @@
             <% end %>
         </ul>
 <% end %>
-
-<h1>Editing Book</h1>
-
 <%= form_for(@book) do |f| %>
 
 
@@ -17,6 +17,9 @@
     <%= f.label :body%>
     <%= f.text_area :body%>
     <%= f.submit%>
-<%end%>
+
+<td>
+<%= link_to "Show", book_path(@book.id) %>
 <%= link_to "Back",books_path%>
-<%= link_to "Edit",edit_book_path(@book)%>
+</td>
+<%end%>
